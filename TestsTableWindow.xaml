@@ -1,0 +1,83 @@
+﻿<Window x:Class="PsychologicalTestsApp.TestsTableWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Управление тестами" Height="600" Width="800"
+        Background="#F0F0F0">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="RoundedButton">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Панель добавления/редактирования теста -->
+        <StackPanel x:Name="TestFormPanel" Grid.Row="0" Margin="0,0,0,15" Visibility="Collapsed">
+            <TextBlock Text="Название теста:" Margin="0,0,0,5"/>
+            <TextBox x:Name="TestNameTextBox" Width="300" HorizontalAlignment="Left"/>
+            <TextBlock Text="Тема:" Margin="0,10,0,5"/>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="ThemeComboBox" Width="300" HorizontalAlignment="Left"/>
+                <Button x:Name="AddThemeButton" Content="Добавить тему" Width="100" Margin="10,0,0,0" Style="{StaticResource RoundedButton}" Click="AddThemeButton_Click"/>
+            </StackPanel>
+            <!-- Панель добавления темы -->
+            <StackPanel x:Name="NewThemePanel" Margin="0,10,0,0" Visibility="Collapsed">
+                <TextBlock Text="Новая тема:" Margin="0,0,0,5"/>
+                <TextBox x:Name="NewThemeTextBox" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Button x:Name="SaveThemeButton" Content="Сохранить" Width="100" Margin="0,0,10,0" Style="{StaticResource RoundedButton}" Click="SaveThemeButton_Click"/>
+                    <Button x:Name="CancelThemeButton" Content="Отмена" Width="100" Style="{StaticResource RoundedButton}" Click="CancelThemeButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+            <!-- Вопросы -->
+            <TextBlock Text="Вопросы:" Margin="0,10,0,5"/>
+            <ScrollViewer MaxHeight="150" Margin="0,0,0,10">
+                <StackPanel x:Name="QuestionsPanel"/>
+            </ScrollViewer>
+            <Button x:Name="AddQuestionButton" Content="Добавить вопрос" Width="150" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource RoundedButton}" Click="AddQuestionButton_Click"/>
+            <!-- Диапазоны -->
+            <TextBlock Text="Диапазоны результатов:" Margin="0,10,0,5"/>
+            <ScrollViewer MaxHeight="150" Margin="0,0,0,10">
+                <StackPanel x:Name="RangesPanel"/>
+            </ScrollViewer>
+            <Button x:Name="AddRangeButton" Content="Добавить диапазон" Width="150" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource RoundedButton}" Click="AddRangeButton_Click"/>
+            <!-- Кнопки сохранения -->
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Button x:Name="SaveTestButton" Content="Сохранить" Width="100" Margin="0,0,10,0" Style="{StaticResource RoundedButton}" Click="SaveTestButton_Click"/>
+                <Button x:Name="CancelTestButton" Content="Отмена" Width="100" Style="{StaticResource RoundedButton}" Click="CancelTestButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Таблица тестов -->
+        <DataGrid x:Name="TestsDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,15">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="250"/>
+                <DataGridTextColumn Header="Тема" Binding="{Binding ThemeName}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="AddTestButton" Content="Добавить тест" Width="130" Height="30" Margin="0,0,10,0" Style="{StaticResource RoundedButton}" Click="AddTestButton_Click"/>
+            <Button x:Name="EditTestButton" Content="Редактировать тест" Width="130" Height="30" Margin="0,0,10,0" Style="{StaticResource RoundedButton}" Click="EditTestButton_Click"/>
+            <Button x:Name="CloseButton" Content="Закрыть" Width="130" Height="30" Margin="0,0,10,0" Style="{StaticResource RoundedButton}" Click="CloseButton_Click"/>
+            <Button x:Name="DeleteTestButton" Content="Удалить тест" Width="130" Height="30" Style="{StaticResource RoundedButton}" Click="DeleteTestButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

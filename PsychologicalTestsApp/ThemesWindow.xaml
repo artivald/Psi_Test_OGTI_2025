@@ -1,0 +1,14 @@
+﻿<Window x:Class="PsychologicalTestsApp.ThemesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Темы" Height="361.438" Width="525"
+        Background="#F0F0F0">
+    <Grid Margin="20">
+        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBlock Text="Выберите тему:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+            <ListBox x:Name="ThemesListBox" SelectionChanged="ThemesListBox_SelectionChanged" Margin="0,0,0,10" Height="200" />
+            <Button Content="Выбрать тему" Height="40" Click="SelectThemeButton_Click" 
+                    Background="#4CAF50" Foreground="White" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="167,0,173,0" />
+        </StackPanel>
+    </Grid>
+</Window>

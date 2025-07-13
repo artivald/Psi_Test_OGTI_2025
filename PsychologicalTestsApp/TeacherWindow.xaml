@@ -1,0 +1,14 @@
+﻿<Window x:Class="PsychologicalTestsApp.TeacherWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Teacher Panel" Height="400" Width="600"
+        Background="#F0F0F0">
+    <Grid Margin="20">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="Добавить тест" Height="40" Width="200" Margin="0,0,0,20" Click="AddTestButton_Click" Background="#4CAF50" Foreground="White" FontWeight="Bold" />
+            <Button Content="Добавить студента" Height="40" Width="200" Margin="0,0,0,20" Click="AddStudentButton_Click" Background="#4CAF50" Foreground="White" FontWeight="Bold" />
+            <Button Content="Добавить группу" Height="40" Width="200" Margin="0,0,0,20" Click="AddGroupButton_Click" Background="#4CAF50" Foreground="White" FontWeight="Bold" />
+            <!-- Добавьте другие элементы управления для управления тестами и студентами -->
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="PsychologicalTestsApp.TestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Тест" Height="505.929" Width="800"
+        Background="#F0F0F0">
+    <Grid Margin="20">
+        <TextBlock x:Name="TestNameTextBlock" FontSize="24" Margin="0,0,0,20" FontWeight="Bold"/>
+        <ScrollViewer Margin="0,50,0,70">
+            <StackPanel x:Name="QuestionsPanel">
+                <!-- Вопросы и ответы будут добавляться динамически -->
+            </StackPanel>
+        </ScrollViewer>
+        <Button Content="Завершить тест" Height="40" Width="200" Click="FinishTestButton_Click" 
+                Background="#4CAF50" Foreground="White" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,369,265,20"/>
+    </Grid>
+</Window>
